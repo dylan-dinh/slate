@@ -228,6 +228,9 @@
             <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#post-practitioner" class="toc-h2 toc-link" data-title="Post practitioner">Post practitioner</a>
+                  </li>
+                  <li>
                     <a href="#get-all-users" class="toc-h2 toc-link" data-title="Get All users">Get All users</a>
                   </li>
                   <li>
@@ -264,41 +267,87 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code>npm install
 nodemon server.js
-</code></pre><h1 id='users'>Users</h1><h2 id='get-all-users'>Get All users</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+</code></pre><h1 id='users'>Users</h1><h2 id='post-practitioner'>Post practitioner</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
 
-<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/get_link_by_id/:id'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{}</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/create_practitioner'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{}</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"azdf"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medecin"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"azer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5cd4aca4add38946a5aef105"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint create a user.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST http://localhost:8000/create_practitioner</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>email of the user, mandatory</td>
+</tr>
+<tr>
+<td>password</td>
+<td>password of the user, mandatory</td>
+</tr>
+<tr>
+<td>group</td>
+<td>group of the user, mandatory</td>
+</tr>
+<tr>
+<td>name</td>
+<td>name of the user, mandatory</td>
+</tr>
+</tbody></table>
 
-<span class="o">&gt;</span> <span class="nx">The</span> <span class="nx">above</span> <span class="nx">command</span> <span class="nx">returns</span> <span class="nx">JSON</span> <span class="nx">structured</span> <span class="nx">like</span> <span class="k">this</span><span class="p">:</span>
+<aside class="success">
+Remember, this endpoint returns an array ;)
+</aside>
+<h2 id='get-all-users'>Get All users</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
 
-<span class="s2">```json
-[
-  {
-    "_id": "5cd461ae3dd5c70807e559cc",
-    "email": "test@test.fr",
-    "password": "test",
-    "group": "medecin",
-    "name": "test"
-  },
-  {
-    "_id": "5cd4a9f1add38946a5aef102",
-    "email": "qsdf@qsdf",
-    "password": "test",
-    "group": "medecin",
-    "name": "test"
-  },
-  {
-    "_id": "5cd4ac7badd38946a5aef103",
-    "email": "qsd@fr",
-    "password": "test",
-    "group": "patient",
-    "name": "patient"
-  }
-]
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/get_all_user'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{}</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5cd461ae3dd5c70807e559cc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@test.fr"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medecin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5cd4a9f1add38946a5aef102"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qsdf@qsdf"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medecin"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5cd4ac7badd38946a5aef103"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qsd@fr"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patient"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patient"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all users.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET http://localhost:8000/get_all_user</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -332,7 +381,7 @@ Remember, this endpoint returns an array ;)
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific users by its email.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET http://localhost:8000/get_user_by_id/:email</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -363,7 +412,7 @@ Remember, this endpoint returns an array ;)
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific users by its ID.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET http://localhost:8000/get_user_by_id/:id</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -387,7 +436,7 @@ Remember, this endpoint returns an array ;)
 <pre class="highlight html tab-html"><code>User 'id' deleted
 </code></pre>
 <p>This endpoint deletes a specific user.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>DELETE http://localhost:8000/delete_user_by_id/:id</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
