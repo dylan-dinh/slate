@@ -231,6 +231,9 @@
                     <a href="#post-practitioner" class="toc-h2 toc-link" data-title="Post practitioner">Post practitioner</a>
                   </li>
                   <li>
+                    <a href="#link-patient-to-practitioner" class="toc-h2 toc-link" data-title="Link patient to practitioner">Link patient to practitioner</a>
+                  </li>
+                  <li>
                     <a href="#get-all-users" class="toc-h2 toc-link" data-title="Get All users">Get All users</a>
                   </li>
                   <li>
@@ -311,8 +314,38 @@ nodemon server.js
 </tbody></table>
 
 <aside class="success">
-Remember, this endpoint returns an array ;)
+MongoDB create an unique _id for us
 </aside>
+<h2 id='link-patient-to-practitioner'>Link patient to practitioner</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/link_patient_to_practitioner/:id_patient/:id_practitioner'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{}</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+
+<p>This endpoint link a patient to his practitioner.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST http://localhost:8000/link_patient_to_practitioner/:id_patient/:id_practitioner</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id_patient</td>
+<td>mandatory, no default value</td>
+<td>id of a patient which is in user table</td>
+</tr>
+<tr>
+<td>id_practitioner</td>
+<td>man datory, no default value</td>
+<td>id of a practitioner which is in user table</td>
+</tr>
+</tbody></table>
 <h2 id='get-all-users'>Get All users</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
 
 <span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'/get_all_user'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{}</span>
@@ -345,9 +378,9 @@ Remember, this endpoint returns an array ;)
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all users.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET http://localhost:8000/get_all_user</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -381,7 +414,7 @@ Remember, this endpoint returns an array ;)
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific users by its email.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET http://localhost:8000/get_user_by_id/:email</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -412,7 +445,7 @@ Remember, this endpoint returns an array ;)
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific users by its ID.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET http://localhost:8000/get_user_by_id/:id</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -436,7 +469,7 @@ Remember, this endpoint returns an array ;)
 <pre class="highlight html tab-html"><code>User 'id' deleted
 </code></pre>
 <p>This endpoint deletes a specific user.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>DELETE http://localhost:8000/delete_user_by_id/:id</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
