@@ -243,6 +243,9 @@
                     <a href="#get-a-specific-user-by-id" class="toc-h2 toc-link" data-title="Get a Specific User by ID">Get a Specific User by ID</a>
                   </li>
                   <li>
+                    <a href="#update-info-of-a-specific-user" class="toc-h2 toc-link" data-title="Update info of a Specific User">Update info of a Specific User</a>
+                  </li>
+                  <li>
                     <a href="#delete-a-specific-user" class="toc-h2 toc-link" data-title="Delete a Specific User">Delete a Specific User</a>
                   </li>
               </ul>
@@ -459,19 +462,64 @@ Remember, this endpoint returns an array ;)
 <td>The ID of the user to retrieve</td>
 </tr>
 </tbody></table>
+<h2 id='update-info-of-a-specific-user'>Update info of a Specific User</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">'/delete_user_by_id/:id'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{}</span>
+</code></pre>
+<blockquote>
+<p>The above command returns json like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aya@aya.fr"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"issou"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medecin"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint update information of a specific user</p>
 <h2 id='delete-a-specific-user'>Delete a Specific User</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
 
-<span class="nx">app</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">'/delete_user_by_id/:id'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{}</span>
-</code></pre>
+<span class="nx">app</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">'/update_user_by_id/:id'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{}</span>
+</code></pre><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>PUT http://localhost:8000/update_user_by_id/:id</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>The ID of the user to delete</td>
+</tr>
+<tr>
+<td>email</td>
+<td>email of the user (in body request)</td>
+</tr>
+<tr>
+<td>password</td>
+<td>password of the user (in body request)</td>
+</tr>
+<tr>
+<td>name</td>
+<td>name of the user (in body request)</td>
+</tr>
+<tr>
+<td>group</td>
+<td>group of the user (in body request)</td>
+</tr>
+</tbody></table>
+
 <blockquote>
 <p>The above command returns html answer (for now) like this:</p>
 </blockquote>
 <pre class="highlight html tab-html"><code>User 'id' deleted
 </code></pre>
-<p>This endpoint deletes a specific user.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<p>This endpoint delete a specific user.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>DELETE http://localhost:8000/delete_user_by_id/:id</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
